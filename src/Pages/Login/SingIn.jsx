@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     const [toggle, setToggle] = useState(true);
-    const { signIn, user, } = useContext(ContextData);
+    const { signIn, user, googleLogin} = useContext(ContextData);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -18,6 +18,10 @@ const SignIn = () => {
         signIn(email, password);
         e.target.reset();
     };
+
+    const handleGoogleLogin=()=>{
+        googleLogin()
+    }
 
     useEffect(() => {
         if (user) {
@@ -55,7 +59,7 @@ const SignIn = () => {
                     </form>
                     <div className="divider">or</div>
                     <div className='flex justify-center gap-5'>
-                        <button><img className='w-10' src="https://i.ibb.co/3ShjXGS/google.png" alt="google" border="0" /></button>
+                        <button onClick={handleGoogleLogin}><img className='w-10' src="https://i.ibb.co/3ShjXGS/google.png" alt="google" border="0" /></button>
                         <button><img className='w-14' src="https://i.ibb.co/8Nwf9P6/githube.png" alt="github" border="0" /></button>
                     </div>
                 </div>

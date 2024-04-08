@@ -38,10 +38,12 @@ const Context = ({ children }) => {
     //  user profile name and photo
     const profileUpdate = (name, photo) => {
         setLoading(true);
-        updateProfile(auth.currentUser, {
+       return updateProfile(auth.currentUser, {
             displayName: name,
-            photoURL: photo
-        });
+            photoURL: photo,
+        
+        })
+       
     };
 
     //  Log Out 
@@ -61,6 +63,7 @@ const Context = ({ children }) => {
             if (currentUser) {
                 setUser(currentUser);
                 setLoading(false);
+                console.log(currentUser);
             } else {
                 setLoading(false);
                 setUser(null);
@@ -69,7 +72,7 @@ const Context = ({ children }) => {
         return () => {
             unsubscribe();
         };
-    }, [auth]);
+    }, [auth,user]);
 
     
     const contextData = {
@@ -80,7 +83,8 @@ const Context = ({ children }) => {
         logOut,
         loading,
         setLoading,
-        googleLogin
+        googleLogin,
+        setUser
     };
 
     

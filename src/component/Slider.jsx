@@ -27,7 +27,7 @@ const Slider = () => {
                 }}
                 
                 modules={[Autoplay, Pagination , Navigation ]}
-                className="mySwiper"
+                className="mySwiper z-10"
             >
                 <SwiperSlide ><div className='w-full  lg:h-[80vh]   overflow-hidden rounded-lg'><img src="https://i.ibb.co/HKkBqj5/design-house-modern-villa-with-open-plan-living-private-bedroom-wing-large-terrace-with-privacy.jpg" alt="" className='w-full rounded-lg'/></div></SwiperSlide>
                

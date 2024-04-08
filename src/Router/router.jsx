@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 
 import SingIn from "../Pages/Login/SingIn";
 import Protector from "../component/Protector";
+import UpdateProfile from "../Pages/UpdataProfile/UpdateProfile";
 
 
 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/updateprofile',
+        element: <UpdateProfile></UpdateProfile>
       }
     ]
   },
