@@ -1,32 +1,37 @@
-// import Slider from "../component/Slider";
+import Slider from "../component/Slider";
 
 import { useLoaderData } from "react-router-dom";
 import Card from "../component/Card";
+import { useEffect, useState } from "react";
 
 
 const Home = () => {
 
     const info = useLoaderData()
-    // const [data,setData]=useState([])
-    // setData(info)
-    console.log(info);
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        setData(info)
+    }, [info])
+
+    console.log(data);
 
     return (
         <div>
-            {/* <Slider></Slider> */}
+            <Slider></Slider>
 
             {/* title */}
-            <div className="my-4">
-                <h3 className="text-3xl text-center  font-bold">Our Houses</h3>
+            <div className="my-12 p-4 ">
+                <h3 className="text-3xl text-center  font-bold">Available Houses</h3>
             </div>
 
 
             {/* card section */}
-            <div className="grid  grid-cols-3 gap-4">
-           {
+            <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+                {
 
-            info.map((itam)=> <Card key={itam.di} itam={itam}></Card>)
-           }
+                    data.map((itam) => <Card key={itam.di} itam={itam}></Card>)
+                }
 
 
 

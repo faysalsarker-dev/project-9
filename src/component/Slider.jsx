@@ -16,6 +16,7 @@ const Slider = () => {
         <>
             <Swiper
                 spaceBetween={50}
+                effect="fade"
                 centeredSlides={true}
                 autoplay={{
                     delay: 3500,
@@ -24,14 +25,16 @@ const Slider = () => {
                 pagination={{
                     clickable: true,
                 }}
-                navigation={true}
-                modules={[Autoplay, Pagination,Navigation ]}
+                
+                modules={[Autoplay, Pagination , Navigation ]}
                 className="mySwiper"
             >
-                <SwiperSlide ><div className='w-full  h-[500px] bg-base-200'></div></SwiperSlide>
-                <SwiperSlide ><div className='w-full  h-[500px] bg-base-200'></div></SwiperSlide>
-                <SwiperSlide ><div className='w-full  h-[500px] bg-base-200'></div></SwiperSlide>
-                <SwiperSlide ><div className='w-full  h-[500px] bg-base-200'></div></SwiperSlide>
+                <SwiperSlide ><div className='w-full  lg:h-[80vh]   overflow-hidden rounded-lg'><img src="https://i.ibb.co/HKkBqj5/design-house-modern-villa-with-open-plan-living-private-bedroom-wing-large-terrace-with-privacy.jpg" alt="" className='w-full rounded-lg'/></div></SwiperSlide>
+               
+                <SwiperSlide ><div className='w-full  lg:h-[80vh]  overflow-hidden rounded-lg'><img src="https://i.ibb.co/HKkBqj5/design-house-modern-villa-with-open-plan-living-private-bedroom-wing-large-terrace-with-privacy.jpg" alt="" className='w-full rounded-lg'/></div></SwiperSlide>
+               
+                <SwiperSlide ><div className='w-full  lg:h-[80vh]   overflow-hidden rounded-lg'><img src="https://i.ibb.co/HKkBqj5/design-house-modern-villa-with-open-plan-living-private-bedroom-wing-large-terrace-with-privacy.jpg" alt="" className='w-full rounded-lg'/></div></SwiperSlide>
+               
             
 
             </Swiper>
