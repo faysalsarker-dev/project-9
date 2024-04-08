@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { ContextData } from "../Contex/Context";
 
 
 
 const Navber = () => {
+    const {user,logOut,setLoading} = useContext(ContextData)
 
     const nav = <>
         <li><NavLink className={`mr-2 btn btn-ghost`} to='/'>Home</NavLink></li>
@@ -11,6 +14,10 @@ const Navber = () => {
         <li><NavLink className={`mr-2 btn btn-ghost`} to='/'>About</NavLink></li>
     </>
 
+const handleLogOut=()=>{
+    logOut()
+    setLoading(false)
+}
 
     return (
         <div className="navbar bg-base-100">
@@ -31,7 +38,13 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login'><button  className="btn">Login</button></Link>
+                {
+                    user?<><div className="avatar mr-2">
+                    <div className=" w-10 rounded-full">
+                      <img src={user.photoURL} />
+                    </div>
+                  </div><button onClick={handleLogOut}  className="btn">Log out</button></>:<Link to='/login'><button  className="btn">Login</button></Link>
+                }
             </div>
         </div>
     );
