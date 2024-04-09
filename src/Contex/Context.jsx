@@ -73,7 +73,7 @@ const Context = ({ children }) => {
         return () => {
             unsubscribe();
         };
-    }, [auth,user]);
+    }, [user,auth]);
 
     
 
