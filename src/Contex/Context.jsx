@@ -11,6 +11,7 @@ import {
     signInWithPopup
 } from "firebase/auth";
 import app from "../Firebase.config/firebase.config";
+import { toast } from 'react-hot-toast';
 
 export const ContextData = createContext(null);
 
@@ -87,7 +88,7 @@ const Context = ({ children }) => {
             setFavorite(newValue); 
             console.log(favorite); 
         } else {
-            alert('Already in favorites');
+            toast.error("this itam already added")
         }
     }
     

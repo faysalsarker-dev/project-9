@@ -5,11 +5,11 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { AiFillHeart } from "react-icons/ai";
 import { useLoaderData } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContextData } from "../../Contex/Context";
 
 const SinglePage = () => {
-    const {AddToFavorite} = useContext(ContextData)
+    const {AddToFavorite , favorite} = useContext(ContextData)
     const info = useLoaderData();
     const { id } = useParams();
 
@@ -23,6 +23,18 @@ const SinglePage = () => {
         setIcon(true)
         AddToFavorite(property)
     }
+
+   useEffect(()=>{
+    const iconvalue = favorite.find(pd=>pd.id===property.id)
+
+    if(iconvalue){
+        setIcon(true)
+    }
+   },[favorite,property.id])
+
+
+
+
     return (
         <div className="flex lg:flex-row flex-col gap-5 mt-5 px-4">
             <div className="flex-1">

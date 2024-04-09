@@ -11,6 +11,7 @@ const Register = () => {
     const [upper, setUpper] = useState(false)
     const [lower, setLower] = useState(false)
     const [charecter, setCharecter] = useState(false)
+    const [err, setErr] = useState('')
 
     const { createUser, profileUpdate, googleLogin, setUser } = useContext(ContextData);
 
@@ -21,25 +22,25 @@ const Register = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        if (/^(?=.*[A-Z])(?=.*[a-z]).{6,}$/.test(e)) {
-           return toast("You need fill up first");
+        setErr('')
+        if (!upper && !lower && !charecter) {
+           return toast.error("This didn't work.")
         }
         
 
         createUser(email, password)
-            .then(res => {
-                profileUpdate(name, photourl)
-                    .then(up => {
-                        setUser(up)
-                    })
-
-                console.log(res.user);
-            })
-            .catch(error => {
-                console.error("Error registering:", error.message);
-            });
-    };
-
+        .then(() => {
+            profileUpdate(name, photourl)
+                .then(updatedUser => {
+                    setUser(updatedUser);
+                })
+               
+            e.target.reset(); 
+        })
+        .catch(error => {
+            setErr(error.message); 
+        });
+};
 
 
     const handleGoogleLogin = () => {
@@ -93,6 +94,9 @@ const Register = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                           {err==='Firebase: Error (auth/email-already-in-use).'?
+                            
+                            <span className="text-red-500">This email already have on account</span>:<span>{err}</span>}
                         </div>
                         <div className="form-control relative">
                             <label className="label">
