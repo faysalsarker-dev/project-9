@@ -38,7 +38,7 @@ const UpdateProfile = () => {
                         </div>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary font-bold text-xl">Update</button>
+                            <button className="btn bg-[#c77dff] text-white font-bold text-xl">Update</button>
                         </div>
 
                     </form>

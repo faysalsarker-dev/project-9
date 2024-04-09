@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 const Card = ({ itam }) => {
   const {id, cover, estate_title, status, segment_name, area, location, facilities ,price} = itam
   return (
-    <div className="card bg-base-100 shadow-xl p-5 ">
-
+    <div className="card bg-base-100 shadow-xl p-5 relative ">
+<div className=" absolute top-3 left-0 bg-[#5a189a] text-white rounded-lg px-2 py-1"><p className="flex items-center justify-center font-semibold"><MdAttachMoney/> : {status}</p></div>
       <figure className="w-full overflow-hidden p-1"><img src={cover} alt="Shoes" className="w-full rounded-lg" /></figure>
       <div className="card-body p-0">
         <h2 className="card-title font-bold mt-3 text-2xl">{estate_title}</h2>
@@ -22,13 +22,13 @@ const Card = ({ itam }) => {
         </ol>
 
         <div className="flex gap-2">
-          <p className="flex items-center"><MdAttachMoney /> : {status}</p>
-          <p className="flex items-center"><GiRapidshareArrow /> : {area}</p>
-          <p className="flex items-center"><IoLocationSharp /> : {location}</p>
+          
+          <p className="flex items-center"><GiRapidshareArrow className="text-[#c77dff]"/> : {area}</p>
+          <p className="flex items-center"><IoLocationSharp className="text-[#c77dff]"/> : {location}</p>
         </div>
         <div className="card-actions flex items-center my-2">
-          <p className="font-bold">{price}</p>
-          <Link to={`/property/${id}`}><button className="btn btn-primary">View Property</button></Link>
+          <p className="font-bold text-[#c77dff] text-xl">{price}</p>
+          <Link to={`/property/${id}`}><button className="btn bg-[#c77dff] text-white">View Property</button></Link>
         </div>
       </div>
     </div>

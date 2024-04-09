@@ -17,6 +17,7 @@ export const ContextData = createContext(null);
 const Context = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [favorite,setFavorite]= useState([])
 
     const auth = getAuth(app);
 
@@ -75,6 +76,25 @@ const Context = ({ children }) => {
     }, [auth,user]);
 
     
+
+    const AddToFavorite = (pd) => {
+        
+        const isExist = favorite.find(item => item.id === pd.id);
+    
+        if (!isExist) {
+            
+            const newValue = [...favorite, pd];
+            setFavorite(newValue); 
+            console.log(favorite); 
+        } else {
+            alert('Already in favorites');
+        }
+    }
+    
+
+
+
+
     const contextData = {
         createUser,
         signIn,
@@ -84,7 +104,9 @@ const Context = ({ children }) => {
         loading,
         setLoading,
         googleLogin,
-        setUser
+        setUser,
+        favorite,
+        AddToFavorite
     };
 
     

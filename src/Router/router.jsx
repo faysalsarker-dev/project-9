@@ -9,6 +9,7 @@ import Register from "../Pages/Register/Register";
 import SingIn from "../Pages/Login/SingIn";
 import Protector from "../component/Protector";
 import UpdateProfile from "../Pages/UpdataProfile/UpdateProfile";
+import Favorite from "../Pages/Favorite/Favorite";
 
 
 
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: '/updateprofile',
         element: <UpdateProfile></UpdateProfile>
+      },
+      {
+
+        path:'/favorite',
+        element:<Favorite></Favorite>
       }
     ]
   },

@@ -8,10 +8,19 @@ const Navber = () => {
     const { user, logOut, setLoading } = useContext(ContextData)
 
     const nav = <>
-        <li><NavLink to='/' className={`mr-2 btn btn-ghost`} >Home</NavLink></li>
-        <li><NavLink to='/updateprofile' className={`mr-2 btn btn-ghost`}>Update
+        <li><NavLink to='/'   className={({ isActive }) =>
+     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd]" : "mr-2 btn btn-ghost"
+  } >Home</NavLink></li>
+        <li><NavLink to='/updateprofile'  className={({ isActive }) =>
+     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd]" : "mr-2 btn btn-ghost"
+  }>Update
             Profile</NavLink></li>
-        <li><NavLink className={`mr-2 btn btn-ghost`} to='/'>About</NavLink></li>
+        <li><NavLink  className={({ isActive }) =>
+     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd]" : "mr-2 btn btn-ghost"
+  } to='/register'>About</NavLink></li>
+        <li><NavLink  className={({ isActive }) =>
+     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd]" : "mr-2 btn btn-ghost"
+  } to='/favorite'>favorite</NavLink></li>
     </>
 
     const handleLogOut = () => {
@@ -30,7 +39,7 @@ const Navber = () => {
                         {nav}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">LuxeHaven</a>
+                <a className="btn btn-ghost text-xl text-[#9d4edd] font-extrabold">LuxeHaven</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -50,7 +59,7 @@ const Navber = () => {
 
                         </div>
 
-                        <button onClick={handleLogOut} className="btn">Log out</button></> : <Link to='/login'><button className="btn">Login</button></Link>
+                        <button onClick={handleLogOut} className="btn bg-[#c77dff] text-white">Log out</button></> : <Link to='/login'><button className="btn bg-[#c77dff] text-white">Login</button></Link>
                 }
             </div>
         </div>
