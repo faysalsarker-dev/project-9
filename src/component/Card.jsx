@@ -15,11 +15,11 @@ const Card = ({ itam }) => {
         <h4><span className=" font-semibold">Name</span> : {segment_name}</h4>
 
 <h5 className=" font-bold">Our facilities</h5>
-        <ol className="list-disc pl-6">
+        <div className="gap-3 space-x-3 my-3">
         {
-          facilities.map((pd,idx)=> <li key={idx}>{pd}</li>)
+          facilities.map((pd,idx)=> <span className="border-[#c77dff] shadow-lg border p-1 px-2 rounded-lg font-medium text-[#c77dff]" key={idx}>{pd}</span>)
         }
-        </ol>
+        </div>
 
         <div className="flex gap-2">
           

@@ -45,6 +45,9 @@ const Register = () => {
 
     const handleGoogleLogin = () => {
         googleLogin()
+        .then(res=>{
+            console.log(res.user);
+        })
     }
     const handleValid = (e) => {
         if (/^(?=.{6,}$).*/.test(e)) {

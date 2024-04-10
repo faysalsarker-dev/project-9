@@ -10,7 +10,7 @@
       "cover": "https://i.ibb.co/HKkBqj5/design-house-modern-villa-with-open-plan-living-private-bedroom-wing-large-terrace-with-privacy.jpg",
       "area": "5000 sq ft",
       "location": "New York City",
-      "facilities": ["rooftop terrace", "private elevator", "concierge service"]
+      "facilities": ["rooftop terrace", "private elevator"]
     },
     {
       "id": 5,
@@ -82,7 +82,7 @@
       "cover": "https://i.ibb.co/tprB7hG/facade-modern-house.jpg",
       "area": "8000 sq ft",
       "location": "Maui, Hawaii",
-      "facilities": ["private beach", "infinity pool", "home theater"]
+      "facilities": ["private beach", "home theater"]
     },
     {
       "id": 2,
@@ -106,7 +106,7 @@
       "cover": "https://i.ibb.co/xFNk7G6/hammocks-with-palm-trees.jpg",
       "area": "50 acres",
       "location": "French Polynesia",
-      "facilities": ["private villas", "beachfront dining", "infinity pools"]
+      "facilities": ["private villas", "infinity pools"]
     }
   ]
   
