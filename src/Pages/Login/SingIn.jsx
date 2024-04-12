@@ -7,7 +7,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     const [toggle, setToggle] = useState(true);
-    const { signIn, user, googleLogin} = useContext(ContextData);
+    const [err, setErr] = useState('')
+    const { signIn, user, googleLogin, setUser } = useContext(ContextData);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -15,17 +16,24 @@ const SignIn = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        signIn(email, password);
+        signIn(email, password)
+            .then(res => {
+                setUser(res.user)
+            })
+            .catch(err => {
+                setErr(err.message);
+                console.log(err);
+            });
         e.target.reset();
     };
 
-    const handleGoogleLogin=()=>{
+    const handleGoogleLogin = () => {
         googleLogin()
     }
 
     useEffect(() => {
         if (user) {
-            navigate(location.state ? location.state : '/'); 
+            navigate(location.state ? location.state : '/');
         }
     }, [user, location.state, navigate]);
 
@@ -40,6 +48,11 @@ const SignIn = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+                            {err === 'Firebase: Error (auth/invalid-credential).' ? (
+                                <span className="text-red-500 my-2">Wrong email or password</span>
+                            ) : (
+                                <span>{err}</span>
+                            )}
                         </div>
                         <div className="form-control relative">
                             <label className="label">

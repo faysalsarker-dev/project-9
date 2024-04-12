@@ -7,6 +7,12 @@ import { useLoaderData } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from "react";
 import { ContextData } from "../../Contex/Context";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+
+AOS.init();
+
+import 'animate.css';
 
 const SinglePage = () => {
     const {AddToFavorite , favorite} = useContext(ContextData)
@@ -22,6 +28,7 @@ const SinglePage = () => {
     const addTofavorit = () => {
         setIcon(true)
         AddToFavorite(property)
+
     }
 
    useEffect(()=>{
@@ -37,33 +44,33 @@ const SinglePage = () => {
 
     return (
         <div className="flex lg:flex-row flex-col gap-5 mt-5 px-4">
-            <div className="flex-1">
+            <div className="flex-1" data-aos="fade-down"  data-aos-duration="1000">
                 <img src={cover} className="rounded-lg" alt="" />
             </div>
             <div className="flex-1 space-y-3">
-                <h3 className="text-4xl font-extrabold">{estate_title}</h3>
-                <h3 className="text-2xl font-bold">{segment_name}</h3>
-                <div className="flex gap-2">
+                <h3 className="text-4xl font-extrabold" data-aos="fade-left" data-aos-duration="1200">{estate_title}</h3>
+                <h3 className="text-2xl font-bold" data-aos="fade-left" data-aos-duration="1400">{segment_name}</h3>
+                <div className="flex gap-2 " data-aos="fade-left" data-aos-duration="1600">
                     <p className="flex items-center"><MdAttachMoney className="text-[#c77dff]" /> : {status}</p>
                     <p className="flex items-center"><GiRapidshareArrow className="text-[#c77dff]" /> : {area}</p>
                     <p className="flex items-center"><IoLocationSharp className="text-[#c77dff]" /> : {location}</p>
                 </div>
 
                 <>
-                    <h5 className="font-bold">Our facilities</h5>
-                    <ol className="list-disc pl-6">
+                    <h5 className="font-bold" data-aos="fade-left" data-aos-duration="1500">Our facilities</h5>
+                    <ol className="list-disc pl-6" data-aos="fade-left" data-aos-duration="1600">
                         {facilities.map((facility, idx) => <li key={idx}>{facility}</li>)}
                     </ol>
                 </>
 
-                <p><span className="font-semibold">Description: </span>{description}</p>
-                <div className="flex gap-16 items-center">
+                <p  data-aos="fade-left" data-aos-duration="1700"><span className="font-semibold">Description: </span>{description}</p>
+                <div className="flex gap-16 items-center" data-aos="fade-up" data-aos-duration="1900">
                     <p className="font-bold text-[#c77dff] text-2xl">{price}</p>
                     <div className="tooltip tooltip-bottom" data-tip="Add to favorit">
                         <button onClick={addTofavorit}>
                             {
                                 icon ?
-                                    <AiFillHeart className="text-4xl text-rose-600" /> : <AiOutlineHeart className="text-4xl text-red-600" />
+                                    <AiFillHeart className="text-4xl text-rose-600 " /> : <AiOutlineHeart className="text-4xl text-red-600 animate__flash" />
                             }
                         </button>
                     </div>
