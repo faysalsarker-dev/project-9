@@ -79,6 +79,7 @@ const Context = ({ children }) => {
 
     
 
+    // add to favorite func
     const AddToFavorite = (pd) => {
         
         const isExist = favorite.find(item => item.id === pd.id);

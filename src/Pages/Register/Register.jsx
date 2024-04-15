@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 import { ContextData } from "../../Contex/Context";
 import { toast } from 'react-hot-toast';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
+AOS.init();
 const Register = () => {
     const [toggle, setToggle] = useState(true);
     const [upper, setUpper] = useState(false)
@@ -76,8 +79,10 @@ const Register = () => {
 
     return (
         <div className='flex justify-center items-center my-5 flex-col '>
-            <h3 className="text-4xl my-5 font-bold">Register LuxeHaven</h3>
-            <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
+            <h3 className="text-4xl my-5 font-bold"  data-aos="fade-left"
+    data-aos-duration="1000">Register LuxeHaven</h3>
+            <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 " data-aos="fade-left"
+    data-aos-duration="1000">
                 <div className="card-body">
                     <form onSubmit={handleRegister}>
                         <div className="form-control">
