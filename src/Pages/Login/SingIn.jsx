@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ContextData } from "../../Contex/Context";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { Helmet } from "react-helmet-async";
 
 const SignIn = () => {
     const [toggle, setToggle] = useState(true);
@@ -41,6 +42,10 @@ const SignIn = () => {
 
     return (
         <div className='flex justify-center items-center my-5 flex-col'>
+                <Helmet>
+        <title>LuxeHaven | Login</title>
+       
+      </Helmet>
             <h3 className="text-4xl my-5 font-bold"  data-aos="fade-right"
     data-aos-duration="1000">Login LuxeHaven</h3>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 "data-aos="fade-right"
@@ -55,7 +60,7 @@ const SignIn = () => {
                             {err === 'Firebase: Error (auth/invalid-credential).' ? (
                                 <span className="text-red-500 my-2">Wrong email or password</span>
                             ) : (
-                                <span>{err}</span>
+                                <span className="text-red-500 my-2">{err}</span>
                             )}
                         </div>
                         <div className="form-control relative">

@@ -1,13 +1,24 @@
+import { NavLink } from "react-router-dom";
 
 
 const Footer = () => {
+  const nav = <>
+  <div><NavLink to='/' className={({ isActive }) =>
+      isActive ? "text-[#9d4edd] p-2    font-bold" : ""
+  } >Home</NavLink></div>
+  <div><NavLink to='/updateprofile' className={({ isActive }) =>
+      isActive ? "text-[#9d4edd] font-bold" : ""
+  }>Update
+      Profile</NavLink></div>
+  <div><NavLink className={({ isActive }) =>
+      isActive ? "mr-2  text-[#9d4edd]  font-bold" : ""
+  } to='/about'>About</NavLink></div>
+
+</>
     return (
         <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
         <nav className="grid grid-flow-col gap-4">
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+       {nav}
         </nav> 
         <nav>
           <div className="grid grid-flow-col gap-4">
@@ -17,7 +28,7 @@ const Footer = () => {
           </div>
         </nav> 
         <aside>
-          <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+          <p>Copyright © 2024 - All right reserved by LuxeHaven</p>
         </aside>
       </footer>
     );

@@ -2,7 +2,10 @@
 
 import { Link } from "react-router-dom";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
+AOS.init();
 const FavoriteCard = ({itam}) => {
     const {id, cover, estate_title, segment_name,price } = itam;
     return (
@@ -11,7 +14,8 @@ const FavoriteCard = ({itam}) => {
             <img src={cover} className="rounded-lg  lg:h-[200px]" alt="" />
         </div>
         <div className="flex-1 space-y-3">
-            <h3 className="text-4xl font-extrabold">{estate_title}</h3>
+            <h3 className="text-4xl font-extrabold"  data-aos="fade-left"
+    data-aos-duration="1000">{estate_title}</h3>
             <h3 className="text-2xl font-bold">{segment_name}</h3>
             <div className=" space-y-4">
                 <p className="font-bold text-[#c77dff] text-2xl mb-2">{price}</p>

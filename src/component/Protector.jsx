@@ -10,7 +10,7 @@ const Protector = ({ children }) => {
 
 if(loading){
   return <div className="flex justify-center items-center h-screen">
-    <span className="loading loading-spinner loading-lg"></span>
+    <span className="loading loading-spinner loading-lg bg-[#9d4edd]"></span>
   </div>
 }
   if (!user) {

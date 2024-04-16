@@ -2,6 +2,7 @@ import Slider from "../component/Slider";
 import { useLoaderData } from "react-router-dom";
 import Card from "../component/Card";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const info = useLoaderData();
@@ -13,7 +14,10 @@ const Home = () => {
 
     return (
         <div>
-
+         <Helmet>
+        <title>LuxeHaven | Home</title>
+       
+      </Helmet>
 
             <Slider />
 

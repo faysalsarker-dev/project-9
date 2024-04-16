@@ -7,6 +7,7 @@ import { ContextData } from "../../Contex/Context";
 import { toast } from 'react-hot-toast';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
+import { Helmet } from "react-helmet-async";
 
 AOS.init();
 const Register = () => {
@@ -78,7 +79,13 @@ const Register = () => {
 
 
     return (
+
+      
         <div className='flex justify-center items-center my-5 flex-col '>
+              <Helmet>
+        <title>LuxeHaven | Register</title>
+       
+      </Helmet>
             <h3 className="text-4xl my-5 font-bold"  data-aos="fade-left"
     data-aos-duration="1000">Register LuxeHaven</h3>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 " data-aos="fade-left"

@@ -10,6 +10,10 @@ import SingIn from "../Pages/Login/SingIn";
 import Protector from "../component/Protector";
 import UpdateProfile from "../Pages/UpdataProfile/UpdateProfile";
 import Favorite from "../Pages/Favorite/Favorite";
+import About from "../Pages/about/About";
+
+import Errpage from "./../component/errpage";
+import NotFoundPage from "../component/NotFoundPage";
 
 
 
@@ -18,6 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<Errpage></Errpage>,
     children: [
       {
         path: '/',
@@ -45,10 +50,19 @@ const router = createBrowserRouter([
         element: <UpdateProfile></UpdateProfile>
       },
       {
+        path:'/about',
+        element:<About></About>
+      },
+      {
 
         path:'/favorite',
         element:<Favorite></Favorite>
+      },
+      {
+        path:'*',
+        element:<NotFoundPage></NotFoundPage>
       }
+   
     ]
   },
 ]);

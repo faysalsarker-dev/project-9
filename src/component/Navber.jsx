@@ -8,19 +8,21 @@ const Navber = () => {
     const { user, logOut, setLoading } = useContext(ContextData)
 
     const nav = <>
-        <li><NavLink to='/'   className={({ isActive }) =>
-     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
-  } >Home</NavLink></li>
-        <li><NavLink to='/updateprofile'  className={({ isActive }) =>
-     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
-  }>Update
+        <li><NavLink to='/' className={({ isActive }) =>
+            isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+        } >Home</NavLink></li>
+        <li><NavLink to='/updateprofile' className={({ isActive }) =>
+            isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+        }>Update
             Profile</NavLink></li>
-        <li><NavLink  className={({ isActive }) =>
-     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
-  } to='/register'>About</NavLink></li>
-        <li><NavLink  className={({ isActive }) =>
-     isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
-  } to='/favorite'>favorite</NavLink></li>
+        <li><NavLink className={({ isActive }) =>
+            isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+        } to='/about'>About</NavLink></li>
+        {
+            user && <li><NavLink className={({ isActive }) =>
+                isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+            } to='/favorite'>Favorite</NavLink></li>
+        }
     </>
 
     const handleLogOut = () => {

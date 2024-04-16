@@ -13,7 +13,7 @@ AOS.init();
 const Card = ({ itam }) => {
   const {id, cover, estate_title, status, segment_name, area, location, facilities ,price} = itam
   return (
-    <div className="card bg-base-100 shadow-xl p-5 relative border"  data-aos="fade-up"
+    <div className="card bg-base-100 shadow-xl p-5 relative border border-[#c77dff58]"  data-aos="fade-up"
     data-aos-duration="900">
 <div className="  shadow-xl absolute top-3 left-0 bg-[#5a189a] text-white rounded-lg px-2 py-1"><p className="flex items-center justify-center font-semibold"><MdAttachMoney/> : {status}</p></div>
       <figure className="w-full overflow-hidden p-1"><img src={cover} alt="Shoes" className="w-full rounded-lg" /></figure>

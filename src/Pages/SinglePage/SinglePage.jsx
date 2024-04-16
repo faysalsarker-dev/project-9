@@ -13,6 +13,7 @@ import 'aos/dist/aos.css';
 AOS.init();
 
 import 'animate.css';
+import { Helmet } from "react-helmet-async";
 
 const SinglePage = () => {
     const {AddToFavorite , favorite} = useContext(ContextData)
@@ -44,6 +45,10 @@ const SinglePage = () => {
 
     return (
         <div className="flex lg:flex-row flex-col gap-5 mt-5 px-4">
+                <Helmet>
+        <title>LuxeHaven | {segment_name}</title>
+       
+      </Helmet>
             <div className="flex-1" data-aos="fade-down"  data-aos-duration="1000">
                 <img src={cover} className="rounded-lg" alt="" />
             </div>
