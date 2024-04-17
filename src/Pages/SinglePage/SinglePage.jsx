@@ -8,15 +8,17 @@ import { useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from "react";
 import { ContextData } from "../../Contex/Context";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 
 AOS.init();
 
 import 'animate.css';
 import { Helmet } from "react-helmet-async";
 
+import { Save } from "../Favorite/Favorite";
+
 const SinglePage = () => {
-    const {AddToFavorite , favorite} = useContext(ContextData)
+    const { favorite } = useContext(ContextData)
     const info = useLoaderData();
     const { id } = useParams();
 
@@ -26,31 +28,35 @@ const SinglePage = () => {
 
 
     const [icon, setIcon] = useState(false)
+
+
     const addTofavorit = () => {
         setIcon(true)
-        AddToFavorite(property)
+        Save(property)
 
     }
 
-   useEffect(()=>{
-    const iconvalue = favorite.find(pd=>pd.id===property.id)
+    useEffect(() => {
+        const data = localStorage.getItem('favorite')
+        const info = data ? JSON.parse(data) : []
+        const iconvalue = info.find(pd => pd.id === property.id)
 
-    if(iconvalue){
-        setIcon(true)
-    }
-   },[favorite,property.id])
+        if (iconvalue) {
+            setIcon(true)
+        }
+    }, [favorite, property.id])
 
 
 
 
     return (
         <div className="flex lg:flex-row flex-col gap-5 mt-5 px-4">
-                <Helmet>
-        <title>LuxeHaven | {segment_name}</title>
-       
-      </Helmet>
-            <div className="flex-1" data-aos="fade-down"  data-aos-duration="1000">
-                <img src={cover} className="rounded-lg" alt="" />
+            <Helmet>
+                <title>LuxeHaven | {segment_name}</title>
+
+            </Helmet>
+            <div className="flex-1" data-aos="fade-down" data-aos-duration="1000">
+                <img src={cover} className="rounded-lg" alt={segment_name} />
             </div>
             <div className="flex-1 space-y-3">
                 <h3 className="text-4xl font-extrabold" data-aos="fade-left" data-aos-duration="1200">{estate_title}</h3>
@@ -68,7 +74,7 @@ const SinglePage = () => {
                     </ol>
                 </>
 
-                <p  data-aos="fade-left" data-aos-duration="1700"><span className="font-semibold">Description: </span>{description}</p>
+                <p data-aos="fade-left" data-aos-duration="1700"><span className="font-semibold">Description: </span>{description}</p>
                 <div className="flex gap-16 items-center" data-aos="fade-up" data-aos-duration="1900">
                     <p className="font-bold text-[#c77dff] text-2xl">{price}</p>
                     <div className="tooltip tooltip-bottom" data-tip="Add to favorit">

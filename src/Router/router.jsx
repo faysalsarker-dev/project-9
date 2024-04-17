@@ -12,7 +12,7 @@ import UpdateProfile from "../Pages/UpdataProfile/UpdateProfile";
 import Favorite from "../Pages/Favorite/Favorite";
 import About from "../Pages/about/About";
 
-import Errpage from "./../component/errpage";
+// import Errpage from "./../component/errpage";
 import NotFoundPage from "../component/NotFoundPage";
 
 
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<Errpage></Errpage>,
+    // errorElement:<Errpage></Errpage>,
     children: [
       {
         path: '/',

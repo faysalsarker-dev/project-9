@@ -55,7 +55,7 @@ const Navber = () => {
                         <div className="tooltip tooltip-bottom z-40 " data-tip={`${user.displayName === null ? 'User name is not found' : user.displayName}`}>
                             <div className="avatar mr-2">
                                 <div className=" w-10 rounded-full">
-                                    <img src={user.photoURL} />
+                                    <img src={user.photoURL ? user.photoURL : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'} />
                                 </div>
                             </div>
 

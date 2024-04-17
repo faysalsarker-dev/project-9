@@ -2,7 +2,10 @@ import { useContext, useState } from "react";
 import { ContextData } from "../../Contex/Context";
 import { toast } from 'react-hot-toast';
 import { Helmet } from "react-helmet-async";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
+AOS.init();
 
 const UpdateProfile = () => {
     const { profileUpdate, setUser, user } = useContext(ContextData)
@@ -26,19 +29,19 @@ const UpdateProfile = () => {
     // console.log(user.photoURL);
 
     return (
-        <div className='flex justify-center items-center my-5 flex-col'>
-                     <Helmet>
-        <title>LuxeHaven | Update Profile</title>
-       
-      </Helmet>
-            
+        <div className='flex justify-center items-center my-5 flex-col' data-aos="fade-down" data-aos-duration="1000">
+            <Helmet>
+                <title>LuxeHaven | Update Profile</title>
+
+            </Helmet>
+
             <h3 className="text-4xl my-5 font-bold">Profile Update</h3>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
                 <div className="card-body">
                     {user && <div className="flex justify-center items-center flex-col space-y-2">
                         <div className="border-[#9d4edd] border-2 rounded-full w-20 p-2">
                             {
-                                user && <img className=" w-20 rounded-full " src={user.photoURL}></img>
+                                user && <img className=" w-20 rounded-full " src={user.photoURL ? user.photoURL : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'}></img>
                             }
                         </div>
                         <p className="font-bold text-2xl"><span className="text-[#5a189a]">Hi</span> , {user?.displayName}</p>

@@ -11,7 +11,8 @@ import {
     signInWithPopup
 } from "firebase/auth";
 import app from "../Firebase.config/firebase.config";
-import { toast } from 'react-hot-toast';
+
+
 
 export const ContextData = createContext(null);
 
@@ -80,19 +81,11 @@ const Context = ({ children }) => {
     
 
     // add to favorite func
-    const AddToFavorite = (pd) => {
+    // const AddToFavorite = (pd) => {
+    //     save(pd)
+    // }
         
-        const isExist = favorite.find(item => item.id === pd.id);
-    
-        if (!isExist) {
-            
-            const newValue = [...favorite, pd];
-            setFavorite(newValue); 
-            console.log(favorite); 
-        } else {
-            toast.error("this itam already added")
-        }
-    }
+    //   const info = Storage() || {}
     
 
 
@@ -109,7 +102,8 @@ const Context = ({ children }) => {
         googleLogin,
         setUser,
         favorite,
-        AddToFavorite
+        setFavorite,
+      
     };
 
     
