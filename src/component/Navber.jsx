@@ -18,6 +18,9 @@ const Navber = () => {
         <li><NavLink className={({ isActive }) =>
             isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
         } to='/about'>About</NavLink></li>
+        <li><NavLink className={({ isActive }) =>
+            isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+        } to='/PrivacyPolicy'>Privacy Policy</NavLink></li>
         {
             user && <li><NavLink className={({ isActive }) =>
                 isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
@@ -61,7 +64,7 @@ const Navber = () => {
 
                         </div>
 
-                        <button onClick={handleLogOut} className="btn bg-[#c77dff] text-white">Log out</button></> : <Link to='/login'><button className="btn bg-[#c77dff] text-white">Login</button></Link>
+                        <button onClick={handleLogOut} className="btn bg-[#c77dff] text-white">Logout</button></> : <Link to='/login'><button className="btn bg-[#c77dff] text-white">Login</button></Link>
                 }
             </div>
         </div>

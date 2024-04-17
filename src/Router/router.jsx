@@ -12,8 +12,9 @@ import UpdateProfile from "../Pages/UpdataProfile/UpdateProfile";
 import Favorite from "../Pages/Favorite/Favorite";
 import About from "../Pages/about/About";
 
-// import Errpage from "./../component/errpage";
+import Errpage from "./../component/errpage";
 import NotFoundPage from "../component/NotFoundPage";
+import PrivacyPolicy from "../component/PrivacyPolicy";
 
 
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    // errorElement:<Errpage></Errpage>,
+    errorElement: <Errpage></Errpage>,
     children: [
       {
         path: '/',
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
         path: '/property/:id',
         element: <Protector>
           <SinglePage></SinglePage>
-          </Protector>,
+        </Protector>,
         loader: () => fetch('/data.json')
 
       },
@@ -50,19 +51,25 @@ const router = createBrowserRouter([
         element: <UpdateProfile></UpdateProfile>
       },
       {
-        path:'/about',
-        element:<About></About>
+        path: '/about',
+        element: <About></About>
       },
       {
 
-        path:'/favorite',
-        element:<Favorite></Favorite>
+        path: '/favorite',
+        element: <Protector>
+          <Favorite></Favorite>
+        </Protector>
       },
       {
-        path:'*',
-        element:<NotFoundPage></NotFoundPage>
+        path: 'PrivacyPolicy',
+        element: <PrivacyPolicy></PrivacyPolicy>
+      },
+      {
+        path: '*',
+        element: <NotFoundPage></NotFoundPage>
       }
-   
+
     ]
   },
 ]);

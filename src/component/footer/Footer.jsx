@@ -2,18 +2,22 @@ import { NavLink } from "react-router-dom";
 
 
 const Footer = () => {
-  const nav = <>
-  <div><NavLink to='/' className={({ isActive }) =>
-      isActive ? "text-[#9d4edd] p-2    font-bold" : ""
-  } >Home</NavLink></div>
-  <div><NavLink to='/updateprofile' className={({ isActive }) =>
-      isActive ? "text-[#9d4edd] font-bold" : ""
-  }>Update
-      Profile</NavLink></div>
-  <div><NavLink className={({ isActive }) =>
-      isActive ? "mr-2  text-[#9d4edd]  font-bold" : ""
-  } to='/about'>About</NavLink></div>
 
+  const nav = <>
+  <li><NavLink to='/' className={({ isActive }) =>
+      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+  } >Home</NavLink></li>
+  <li><NavLink to='/updateprofile' className={({ isActive }) =>
+      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+  }>Update
+      Profile</NavLink></li>
+  <li><NavLink className={({ isActive }) =>
+      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+  } to='/about'>About</NavLink></li>
+  <li><NavLink className={({ isActive }) =>
+      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+  } to='/PrivacyPolicy'>Privacy Policy</NavLink></li>
+ 
 </>
     return (
         <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">

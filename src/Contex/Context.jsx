@@ -8,6 +8,7 @@ import {
     signOut, 
     updateProfile,
     GoogleAuthProvider,
+    GithubAuthProvider ,
     signInWithPopup
 } from "firebase/auth";
 import app from "../Firebase.config/firebase.config";
@@ -25,6 +26,7 @@ const Context = ({ children }) => {
 
 
     const GoogleProvider = new GoogleAuthProvider();
+    const GithubeProvider = new GithubAuthProvider();
 
     //create user with email and password
     const createUser = (email, password) => {
@@ -61,6 +63,12 @@ const Context = ({ children }) => {
      return  signInWithPopup(auth, GoogleProvider)
     }
 
+    // Google 
+    const githubeLogin=()=>{
+        setLoading(true)
+     return  signInWithPopup(auth, GithubeProvider)
+    }
+
     useEffect(() => {
 
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -80,14 +88,7 @@ const Context = ({ children }) => {
 
     
 
-    // add to favorite func
-    // const AddToFavorite = (pd) => {
-    //     save(pd)
-    // }
-        
-    //   const info = Storage() || {}
-    
-
+   
 
 
 
@@ -103,6 +104,7 @@ const Context = ({ children }) => {
         setUser,
         favorite,
         setFavorite,
+        githubeLogin
       
     };
 

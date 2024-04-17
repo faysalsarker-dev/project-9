@@ -27,7 +27,7 @@ const Slider = () => {
                 }}
                 
                 modules={[Autoplay, Pagination , Navigation ]}
-                className="mySwiper z-10 "
+                className="mySwiper z-10  container"
             >
             
                 <SwiperSlide  ><div  className='w-full p-12 lg:h-[80vh]  bg-cover bg-no-repeat overflow-hidden rounded-lg'style={{backgroundImage: 'linear-gradient(180deg, rgba(19, 19, 24, 0.80) 0%, rgba(19, 19, 24, 0) 90%), url(https://img.freepik.com/free-photo/modern-architecture-illuminates-night-with-luxury-elegance-generated-by-artificial-intelligence_188544-150246.jpg?t=st=1713191105~exp=1713194705~hmac=ddffd49a25590ff9bc671f421ce0256632f351b33f4b5295e7bf21d026287774&w=1060)'}}>

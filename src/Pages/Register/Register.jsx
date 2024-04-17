@@ -17,7 +17,7 @@ const Register = () => {
     const [charecter, setCharecter] = useState(false)
     const [err, setErr] = useState('')
 
-    const { createUser, profileUpdate, googleLogin, setUser } = useContext(ContextData);
+    const { createUser, profileUpdate, googleLogin, setUser ,githubeLogin} = useContext(ContextData);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -28,7 +28,7 @@ const Register = () => {
 
         setErr('')
         if (!upper && !lower && !charecter) {
-           return toast.error("This didn't work.")
+           return toast.error("Please fulfill the requirement")
         }
         
 
@@ -52,6 +52,11 @@ const Register = () => {
         .then(res=>{
             console.log(res.user);
         })
+    }
+
+
+    const handleGithubeLogin = () => {
+        githubeLogin()
     }
     const handleValid = (e) => {
         if (/^(?=.{6,}$).*/.test(e)) {
@@ -144,7 +149,7 @@ const Register = () => {
                     <div className="divider">or</div>
                     <div className='flex justify-center gap-5'>
                         <button onClick={handleGoogleLogin} ><img className=' w-10' src="https://i.ibb.co/3ShjXGS/google.png" alt="google" border="0" /></button>
-                        <button><img className=' w-14' src="https://i.ibb.co/8Nwf9P6/githube.png" alt="githube" border="0" /></button>
+                        <button onClick={handleGithubeLogin}><img className=' w-14' src="https://i.ibb.co/8Nwf9P6/githube.png" alt="githube" border="0" /></button>
                     </div>
                 </div>
             </div>
