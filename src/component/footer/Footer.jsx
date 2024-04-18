@@ -4,19 +4,19 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
 
   const nav = <>
-  <li><NavLink to='/' className={({ isActive }) =>
-      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
-  } >Home</NavLink></li>
-  <li><NavLink to='/updateprofile' className={({ isActive }) =>
-      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
+  <div><NavLink to='/' className={({ isActive }) =>
+      isActive ? "mr-2 text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2"
+  } >Home</NavLink></div>
+  <div><NavLink to='/updateprofile' className={({ isActive }) =>
+      isActive ? "mr-2 text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2"
   }>Update
-      Profile</NavLink></li>
-  <li><NavLink className={({ isActive }) =>
-      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
-  } to='/about'>About</NavLink></li>
-  <li><NavLink className={({ isActive }) =>
-      isActive ? "mr-2 btn btn-ghost text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2 btn btn-ghost"
-  } to='/PrivacyPolicy'>Privacy Policy</NavLink></li>
+      Profile</NavLink></div>
+  <div><NavLink className={({ isActive }) =>
+      isActive ? "mr-2 text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2"
+  } to='/about'>About</NavLink></div>
+  <div><NavLink className={({ isActive }) =>
+      isActive ? "mr-2 text-[#9d4edd] border-[#9d4edd] font-bold" : "mr-2"
+  } to='/PrivacyPolicy'>Privacy Policy</NavLink></div>
  
 </>
     return (

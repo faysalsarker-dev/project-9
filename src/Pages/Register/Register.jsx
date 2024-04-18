@@ -17,7 +17,7 @@ const Register = () => {
     const [charecter, setCharecter] = useState(false)
     const [err, setErr] = useState('')
 
-    const { createUser, profileUpdate, googleLogin, setUser ,githubeLogin} = useContext(ContextData);
+    const { createUser, profileUpdate, googleLogin, setUser ,TwitterLogin} = useContext(ContextData);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -55,8 +55,14 @@ const Register = () => {
     }
 
 
-    const handleGithubeLogin = () => {
-        githubeLogin()
+    // const handleGithubeLogin = () => {
+    //     githubeLogin()
+    // }
+
+    const handleTwitterLogin = () => {
+        TwitterLogin()
+          
+
     }
     const handleValid = (e) => {
         if (/^(?=.{6,}$).*/.test(e)) {
@@ -149,7 +155,7 @@ const Register = () => {
                     <div className="divider">or</div>
                     <div className='flex justify-center gap-5'>
                         <button onClick={handleGoogleLogin} ><img className=' w-10' src="https://i.ibb.co/3ShjXGS/google.png" alt="google" border="0" /></button>
-                        <button onClick={handleGithubeLogin}><img className=' w-14' src="https://i.ibb.co/8Nwf9P6/githube.png" alt="githube" border="0" /></button>
+                        <button onClick={handleTwitterLogin}><img className=' w-14' src="https://e7.pngegg.com/pngimages/708/311/png-clipart-icon-logo-twitter-logo-twitter-logo-blue-social-media-thumbnail.png" alt="githube" border="0" /></button>
                     </div>
                 </div>
             </div>

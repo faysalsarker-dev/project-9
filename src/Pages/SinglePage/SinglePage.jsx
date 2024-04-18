@@ -81,7 +81,7 @@ const SinglePage = () => {
                         <button onClick={addTofavorit}>
                             {
                                 icon ?
-                                    <AiFillHeart className="text-4xl text-rose-600 " /> : <AiOutlineHeart className="text-4xl text-red-600 animate__flash" />
+                                    <AiFillHeart className="text-4xl text-rose-600 animate__animated animate__flash" /> : <AiOutlineHeart className="text-4xl text-red-600 " />
                             }
                         </button>
                     </div>

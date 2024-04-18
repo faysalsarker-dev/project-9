@@ -9,9 +9,11 @@ import {
     updateProfile,
     GoogleAuthProvider,
     GithubAuthProvider ,
+    TwitterAuthProvider,
     signInWithPopup
 } from "firebase/auth";
 import app from "../Firebase.config/firebase.config";
+
 
 
 
@@ -27,6 +29,7 @@ const Context = ({ children }) => {
 
     const GoogleProvider = new GoogleAuthProvider();
     const GithubeProvider = new GithubAuthProvider();
+    const TwitterProvider = new TwitterAuthProvider();
 
     //create user with email and password
     const createUser = (email, password) => {
@@ -63,10 +66,17 @@ const Context = ({ children }) => {
      return  signInWithPopup(auth, GoogleProvider)
     }
 
-    // Google 
+    // Githube 
     const githubeLogin=()=>{
         setLoading(true)
      return  signInWithPopup(auth, GithubeProvider)
+    }
+
+    // twitter 
+    const TwitterLogin=()=>{
+        setLoading(true)
+     return  signInWithPopup(auth, TwitterProvider)
+
     }
 
     useEffect(() => {
@@ -104,7 +114,8 @@ const Context = ({ children }) => {
         setUser,
         favorite,
         setFavorite,
-        githubeLogin
+        githubeLogin,
+        TwitterLogin
       
     };
 

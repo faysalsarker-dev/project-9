@@ -13,17 +13,17 @@ const Home = () => {
     }, [info]);
 
     return (
-        <div>
+        <div className="px-4">
          <Helmet>
         <title>LuxeHaven | Home</title>
        
       </Helmet>
 
-            <Slider />
+           <div className="mt-4"> <Slider /></div>
 
            
             <div className="my-12 p-4 ">
-                <h3 className="text-3xl text-center font-bold">Available Houses</h3>
+                <h3 className="text-3xl text-center font-bold animate__animated  animate__bounce">Available Houses</h3>
             </div>
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">

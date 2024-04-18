@@ -18,22 +18,28 @@ const Card = ({ itam }) => {
 <div className="  shadow-xl absolute top-3 left-0 bg-[#5a189a] text-white rounded-lg px-2 py-1"><p className="flex items-center justify-center font-semibold"><MdAttachMoney/> : {status}</p></div>
       <figure className="w-full overflow-hidden p-1"><img src={cover} alt="Shoes" className="w-full rounded-lg" /></figure>
       <div className="card-body p-0">
-        <h2 className="card-title font-bold mt-3 text-2xl">{estate_title}</h2>
-        <h4><span className=" font-semibold">Name</span> : {segment_name}</h4>
+        <h2 className="card-title font-bold mt-3 text-2xl"  data-aos="fade-up"
+    data-aos-duration="1000">{estate_title}</h2>
+        <h4 data-aos="fade-up"
+    data-aos-duration="1400"><span className=" font-semibold" >Name</span> : {segment_name}</h4>
 
-<h5 className=" font-bold">Our facilities</h5>
-        <div className="gap-3 space-x-3 my-3">
+<h5 className=" font-bold" data-aos="fade-up"
+    data-aos-duration="1700">Our facilities</h5>
+        <div className="flex gap-2">
         {
-          facilities.map((pd,idx)=> <span className="border-[#c77dff] shadow-lg border p-1 px-2 rounded-lg font-medium text-[#c77dff]" key={idx}>{pd}</span>)
+          facilities.map((pd,idx)=> <div data-aos="fade-up"
+          data-aos-duration="1900" className="border-[#c77dff] shadow-lg border text-center px-2 py-1 rounded-lg font-medium text-[#c77dff]" key={idx}>{pd}</div>)
         }
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2" data-aos="fade-up"
+    data-aos-duration="2000">
           
           <p className="flex items-center"><GiRapidshareArrow className="text-[#c77dff]"/> : {area}</p>
           <p className="flex items-center"><IoLocationSharp className="text-[#c77dff]"/> : {location}</p>
         </div>
-        <div className="card-actions flex justify-between items-center my-2">
+        <div className="card-actions flex justify-between items-center my-2" data-aos="fade-up"
+    data-aos-duration="2200" >
           <Link to={`/property/${id}`}><button className="btn bg-[#c77dff] text-white">View Property</button></Link>
           <p className="font-bold text-[#c77dff] text-xl text-right">{price}</p>
         </div>
