@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { HiEyeOff } from "react-icons/hi";
 import { Link } from "react-router-dom";
-
+import { TiTick } from "react-icons/ti";
 import { ContextData } from "../../Contex/Context";
 import { toast } from 'react-hot-toast';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 import { Helmet } from "react-helmet-async";
+import { RxCross2 } from "react-icons/rx";
 
 AOS.init();
 const Register = () => {
@@ -17,7 +18,7 @@ const Register = () => {
     const [charecter, setCharecter] = useState(false)
     const [err, setErr] = useState('')
 
-    const { createUser, profileUpdate, googleLogin, setUser ,TwitterLogin} = useContext(ContextData);
+    const { createUser, profileUpdate, googleLogin, setUser, githubeLogin } = useContext(ContextData);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -28,42 +29,49 @@ const Register = () => {
 
         setErr('')
         if (!upper && !lower && !charecter) {
-           return toast.error("Please fulfill the requirement")
+            return toast.error("Please fulfill the requirement")
         }
-        
+
 
         createUser(email, password)
-        .then(() => {
-            profileUpdate(name, photourl)
-                .then(updatedUser => {
-                    setUser(updatedUser);
-                })
-               
-            e.target.reset(); 
-        })
-        .catch(error => {
-            setErr(error.message); 
-        });
-};
+            .then(() => {
+                profileUpdate(name, photourl)
+                    .then(updatedUser => {
+                        setUser(updatedUser);
+                        toast.success("Register successful")
+                    })
+
+                e.target.reset();
+            })
+            .catch(error => {
+                setErr(error.message);
+            });
+    };
 
 
     const handleGoogleLogin = () => {
         googleLogin()
-        .then(res=>{
-            console.log(res.user);
-        })
+            .then(() => {
+                toast.success("Register successful")
+            })
+            .catch(err => {
+                setErr(err.message);
+            })
     }
 
 
-    // const handleGithubeLogin = () => {
-    //     githubeLogin()
-    // }
 
-    const handleTwitterLogin = () => {
-        TwitterLogin()
-          
-
+    const handleGithubeLogin = () => {
+        githubeLogin()
+            .then(() => {
+                toast.success("Register successful")
+            })
+            .catch(err => {
+                setErr(err.message);
+            })
     }
+
+
     const handleValid = (e) => {
         if (/^(?=.{6,}$).*/.test(e)) {
             setCharecter(true)
@@ -85,22 +93,22 @@ const Register = () => {
         }
 
 
-        
+
     }
 
 
     return (
 
-      
+
         <div className='flex justify-center items-center my-5 flex-col '>
-              <Helmet>
-        <title>LuxeHaven | Register</title>
-       
-      </Helmet>
-            <h3 className="text-4xl my-5 font-bold"  data-aos="fade-left"
-    data-aos-duration="1000">Register LuxeHaven</h3>
+            <Helmet>
+                <title>LuxeHaven | Register</title>
+
+            </Helmet>
+            <h3 className="text-4xl my-5 font-bold" data-aos="fade-left"
+                data-aos-duration="1000">Register LuxeHaven</h3>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 " data-aos="fade-left"
-    data-aos-duration="1000">
+                data-aos-duration="1000">
                 <div className="card-body">
                     <form onSubmit={handleRegister}>
                         <div className="form-control">
@@ -120,9 +128,9 @@ const Register = () => {
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
-                           {err==='Firebase: Error (auth/email-already-in-use).'?
-                            
-                            <span className="text-red-500">This email already have on account</span>:<span>{err}</span>}
+                            {err === 'Firebase: Error (auth/email-already-in-use).' ?
+
+                                <span className="text-red-500">This email already have on account</span> : <span>{err}</span>}
                         </div>
                         <div className="form-control relative">
                             <label className="label">
@@ -138,11 +146,15 @@ const Register = () => {
 
                         <div>
                             <p className="mt-2">Password must contain</p>
-                            <ul className=" list-disc pl-5 mt-2">
+                            <ul className="  pl-5 mt-2">
 
-                                <li className={`${charecter ? 'text-green-600' : 'text-red-600'}`}>at least 6 characters</li>
-                                <li className={`${upper ? 'text-green-600' : 'text-red-600'}`}>at least one uppercase letter (A-Z)</li>
-                                <li className={`${lower ? 'text-green-600' : 'text-red-600'}`}>at least one lowercase letter (a-z)</li>
+                                <li className={`${charecter ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}
+                                >{charecter ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least 6 characters</li>
+
+                                <li className={`${upper ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{upper ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one uppercase letter (A-Z)</li>
+
+                                <li className={`${lower ? "text-[#4e4c4c]" : "text-[#4e4c4c7e]"} flex items-center gap-2`}>{lower ? <TiTick className="text-green-500" /> : <RxCross2 className="text-red-500" />}at least one lowercase letter (a-z)</li>
+
 
 
                             </ul>
@@ -155,11 +167,11 @@ const Register = () => {
                     <div className="divider">or</div>
                     <div className='flex justify-center gap-5'>
                         <button onClick={handleGoogleLogin} ><img className=' w-10' src="https://i.ibb.co/3ShjXGS/google.png" alt="google" border="0" /></button>
-                        <button onClick={handleTwitterLogin}><img className=' w-14' src="https://e7.pngegg.com/pngimages/708/311/png-clipart-icon-logo-twitter-logo-twitter-logo-blue-social-media-thumbnail.png" alt="githube" border="0" /></button>
+                        <button onClick={handleGithubeLogin}><img className=' w-14' src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="githube" border="0" /></button>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

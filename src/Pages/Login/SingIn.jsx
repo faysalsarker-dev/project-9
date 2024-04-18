@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet-async";
 const SignIn = () => {
     const [toggle, setToggle] = useState(true);
     const [err, setErr] = useState('')
-    const { signIn, user, googleLogin, setUser, TwitterLogin} = useContext(ContextData);
+    const { signIn, user, googleLogin, setUser,githubeLogin} = useContext(ContextData);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -34,8 +34,12 @@ const SignIn = () => {
         googleLogin()
     }
 
-    const handleTiwitterLogin = () => {
-        TwitterLogin()
+    // const handleTiwitterLogin = () => {
+    //     TwitterLogin()
+    // }
+
+    const handleGithubeLogin = () => {
+        githubeLogin()
     }
 
     useEffect(() => {
@@ -86,7 +90,8 @@ const SignIn = () => {
                     <div className="divider">or</div>
                     <div className='flex justify-center gap-5'>
                         <button onClick={handleGoogleLogin}><img className='w-10' src="https://i.ibb.co/3ShjXGS/google.png" alt="google" border="0" /></button>
-                        <button onClick={handleTiwitterLogin}><img className='w-14' src="https://e7.pngegg.com/pngimages/708/311/png-clipart-icon-logo-twitter-logo-twitter-logo-blue-social-media-thumbnail.png" alt="github" border="0" /></button>
+                       
+                        <button onClick={handleGithubeLogin}><img className='w-14' src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="github" border="0" /></button>
                     </div>
                 </div>
             </div>

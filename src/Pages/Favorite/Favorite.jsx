@@ -27,8 +27,8 @@ const Favorite = () => {
 
   useEffect(() => {
     const data = Storage();
-    setFavorite(data); 
-  }, [setFavorite]); 
+    setFavorite(data);
+  }, [setFavorite]);
 
 
 
@@ -39,7 +39,11 @@ const Favorite = () => {
       </Helmet>
       <div className="grid gap-5">
         {
-            favorite.map((itam,idx)=> <FavoriteCard key={idx} itam={itam}></FavoriteCard>)
+          !(favorite.length > 0) && <div className="flex justify-center items-center h-[90vh]"><h3 className="text-4xl font-bold">no favorite</h3></div>
+        }
+
+        {
+          favorite.map((itam, idx) => <FavoriteCard key={idx} itam={itam}></FavoriteCard>)
         }
       </div>
     </div>

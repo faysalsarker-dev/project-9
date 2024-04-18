@@ -41,11 +41,11 @@ const UpdateProfile = () => {
                     {user && <div className="flex justify-center items-center flex-col space-y-2">
                         <div className="border-[#9d4edd] border-2 rounded-full w-20 p-2">
                             {
-                                user && <img className=" w-20 rounded-full " src={user.photoURL ? user.photoURL : 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'}></img>
+                                user && <img className=" w-20 rounded-full " src={user.photoURL ? user.photoURL : 'https://t4.ftcdn.net/jpg/03/40/12/49/360_F_340124934_bz3pQTLrdFpH92ekknuaTHy8JuXgG7fi.jpg'}></img>
                             }
                         </div>
                         <p className="font-bold text-2xl"><span className="text-[#5a189a]">Hi</span> , {user?.displayName}</p>
-                        <p>{user.email}</p>
+                        <p>{user.email === null ? 'Email not found' : user.email}</p>
                     </div>}
                     <form onSubmit={update}>
                         <div className="form-control">
